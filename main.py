@@ -4,28 +4,26 @@ import numpy as np
 import matplotlib
 matplotlib.rcParams['text.usetex'] = True
 
+fig = plt.figure()
+ax = Axes3D(fig)
 
+#define each vector----
 xa = [0, 1]
 ya = [0, 3]
 za = [0, 5]
-
 
 xb = [0,2]
 yb = [0,-2]
 zb = [0,4]
 
-
 xc = [0,3]
 yc = [0,1]
 zc = [0,9]
 
-
 xf = [0,5]
 yf = [0,-3]
 zf = [0,3]
-
-fig = plt.figure()
-ax = Axes3D(fig)
+#---------------------
 
 ax.plot(xa, ya, za, "-", color="#ff0000", ms=6, mew=0.5,label = r"$\vec{a}$")
 ax.plot(xb, yb, zb, "-", color="#00ff00", ms=6, mew=0.5,label = r"$\vec{b}$")
@@ -33,12 +31,10 @@ ax.plot(xc, yc, zc, "-", color="#0016ff", ms=6, mew=0.5,label = r"$\vec{c}$")
 ax.plot(xf, yf, zf, "-", color="#f400ff", ms=12, mew=0.5,label = r"$\vec{f}$")
 
 
-
-def plot_plane(axes, param, xrange, yrange, zrange,
-               pcolor="blue", alpha=0.1):
+def plot_plane(axes, param, xrange, yrange, zrange, pcolor="blue", alpha=0.1):
 
     # 軸ラベルの設定
-    axes.set_xlabel("$\{x}$", fontsize = 16)
+    axes.set_xlabel("x", fontsize = 16)
     axes.set_ylabel("y", fontsize = 16)
     axes.set_zlabel("z", fontsize = 16)
 
@@ -84,27 +80,13 @@ ax.plot(linesux, linesuy, linesuz, "--", color="#f4ff00", ms=12, mew=0.5)
 ax.plot(linetux, linetuy, linetuz, "--", color="#ff8500", ms=12, mew=0.5)
 """
 
-ax.set_xlabel('x')
-ax.set_ylabel('y')
-ax.set_zlabel('z')
+ax.set_xlabel(r'$x$')
+ax.set_ylabel(r'$y$')
+ax.set_zlabel(r'$z$')
 ax.legend()
 
-"""
-plt.axis('off')
 
-fsz = 20
-
-# draw axes
-ax.plot([xr[0],xr[1]],[0,0],[0,0],'-',color='#000000',lw=1)
-ax.plot([0,0],[yr[0],yr[1]],[0,0],'-',color='#000000',lw=1)
-ax.plot([0,0],[0,0],[zr[0],zr[1]],'-',color='#000000',lw=1)
-ax.text(xr[1]+0.5,0,0,'x',fontsize=fsz)
-ax.text(0,yr[1]+0.5,0,'y',fontsize=fsz)
-ax.text(0,0,zr[1]+0.5,'z',fontsize=fsz)
-"""
-
-for i in range(90):
-		
-		ax.view_init(elev=0, azim=(i)*2)
-
+for i in range(1):
+		ax.view_init(elev=30, azim=(i)*2)
 		plt.savefig("images/"+str(i+1)+".svg")
+plt.show()
