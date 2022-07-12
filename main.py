@@ -4,7 +4,7 @@ import numpy as np
 import matplotlib
 matplotlib.rcParams['text.usetex'] = True
 
-fig = plt.figure()
+fig = plt.figure(figsize=(6,4))
 ax = Axes3D(fig)
 
 #define each vector----
@@ -31,12 +31,7 @@ ax.plot(xc, yc, zc, "-", color="#0016ff", ms=6, mew=0.5,label = r"$\vec{c}$")
 ax.plot(xf, yf, zf, "-", color="#f400ff", ms=12, mew=0.5,label = r"$\vec{f}$")
 
 
-def plot_plane(axes, param, xrange, yrange, zrange, pcolor="blue", alpha=0.1):
-
-    # 軸ラベルの設定
-    axes.set_xlabel("x", fontsize = 16)
-    axes.set_ylabel("y", fontsize = 16)
-    axes.set_zlabel("z", fontsize = 16)
+def plot_plane(ax, param, xrange, yrange, pcolor="blue", alpha=0.15):
 
     # 格子点の作成
     x = np.arange(xrange[0], xrange[1], 0.5)
@@ -52,13 +47,12 @@ def plot_plane(axes, param, xrange, yrange, zrange, pcolor="blue", alpha=0.1):
 # a,b,c,dを設定
 param = [-22, -6, 8, 0]
 
-# x,y,z軸の範囲
-xr = [0, 5]
-yr = [-5, 5]
-zr = [0, 5]
+# x,y軸の範囲
+xr = [0, 3.1]
+yr = [-2, 3.1]
 
 # 平面をプロット
-plot_plane(ax, param, xr, yr, zr)
+plot_plane(ax, param, xr, yr)
 
 """
 linesux = [1,3]
@@ -78,9 +72,9 @@ ax.plot(linetux, linetuy, linetuz, "--", color="#ff8500", ms=12, mew=0.5)
 ax.set_xlabel(r'$x$')
 ax.set_ylabel(r'$y$')
 ax.set_zlabel(r'$z$')
-ax.legend()
+plt.legend(fontsize=12, loc='upper right', bbox_to_anchor=(1, 0.9))
 
-for i in range(1):
-		ax.view_init(elev=15, azim=(i)*2)
-		plt.savefig("images/"+str(i+1)+".svg")
-plt.show()
+for i in range(180):
+    ax.view_init(elev=10, azim=(i)*2)
+    plt.savefig("images/"+str(i+1)+".png",dpi = 300)
+    print("saved"+str(i+1))
