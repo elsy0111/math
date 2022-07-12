@@ -62,12 +62,12 @@ plot_plane(ax, param, xr, yr)
 # ラベル(凡例)のプロット
 plt.legend(fontsize=12, loc='upper right', bbox_to_anchor=(1, 0.9))
 
-# #png export-----------------------
-# for i in range(180): # 回転のため
-#     ax.view_init(elev=10, azim=(i)*2)
-#     plt.savefig("images/"+str(i+1)+".png")
-#     print("saved"+str(i+1))
-# #---------------------------------
+#png export-----------------------
+for i in range(180): # 回転のため
+    ax.view_init(elev=10, azim=(i)*2)
+    plt.savefig("images_png/"+str(i+1)+".png",dpi = 300)
+    print("saved"+str(i+1))
+#---------------------------------
 
 # #svg export-----------------------
 # for i in range(180): # 回転のため
@@ -77,4 +77,4 @@ plt.legend(fontsize=12, loc='upper right', bbox_to_anchor=(1, 0.9))
 # #---------------------------------
 
 # 表示
-plt.show()
+# plt.show()
