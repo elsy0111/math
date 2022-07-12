@@ -12,7 +12,7 @@ if not video.isOpened():
 
 for i in range(1,180+1):
     print(i)
-    pic_data=glob.glob("images/"+str(i)+".png")
+    pic_data=glob.glob("images_png/"+str(i)+".png")
     for j in range(len(pic_data)):
         img=pic_data[j]
         img=cv2.imread(img)#画像を読み込む
