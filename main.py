@@ -38,11 +38,6 @@ def plot_plane(axes, param, xrange, yrange, zrange, pcolor="blue", alpha=0.1):
     axes.set_ylabel("y", fontsize = 16)
     axes.set_zlabel("z", fontsize = 16)
 
-    # 軸範囲の設定
-    axes.set_xlim(xrange[0], xrange[1])
-    axes.set_ylim(yrange[0], yrange[1])
-    axes.set_zlim(zrange[0], zrange[1])
-
     # 格子点の作成
     x = np.arange(xrange[0], xrange[1], 0.5)
     y = np.arange(yrange[0], yrange[1], 0.5)
@@ -85,8 +80,7 @@ ax.set_ylabel(r'$y$')
 ax.set_zlabel(r'$z$')
 ax.legend()
 
-
 for i in range(1):
-		ax.view_init(elev=30, azim=(i)*2)
+		ax.view_init(elev=15, azim=(i)*2)
 		plt.savefig("images/"+str(i+1)+".svg")
 plt.show()
