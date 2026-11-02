@@ -1,6 +1,6 @@
 """ --------------------------------------
 Author  : 3I 17  Saito Kengo
-Repository    :  github.com/elsy0111/math/3I
+Repository    :  github.com/elsy0111/math
     -------------------------------------- """
 
 import numpy as np
